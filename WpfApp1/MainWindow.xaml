@@ -1,0 +1,71 @@
+﻿<Window x:Class="CircularChartApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="古天文图表" Height="600" Width="800">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <GroupBox Header="日期时间设置" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                        <TextBlock Text="年:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBox x:Name="YearInput" Width="60" VerticalAlignment="Center"/>
+                        <RepeatButton x:Name="YearUpButton" Content="▲" Width="20" Height="20" Click="YearUpButton_Click"/>
+                        <RepeatButton x:Name="YearDownButton" Content="▼" Width="20" Height="20" Click="YearDownButton_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                        <TextBlock Text="月:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBox x:Name="MonthInput" Width="30" VerticalAlignment="Center"/>
+                        <RepeatButton x:Name="MonthUpButton" Content="▲" Width="20" Height="20" Click="MonthUpButton_Click"/>
+                        <RepeatButton x:Name="MonthDownButton" Content="▼" Width="20" Height="20" Click="MonthDownButton_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                        <TextBlock Text="日:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBox x:Name="DayInput" Width="30" VerticalAlignment="Center"/>
+                        <RepeatButton x:Name="DayUpButton" Content="▲" Width="20" Height="20" Click="DayUpButton_Click"/>
+                        <RepeatButton x:Name="DayDownButton" Content="▼" Width="20" Height="20" Click="DayDownButton_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                        <TextBlock Text="时间:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TimeInput" Width="60" VerticalAlignment="Center"/>
+                        <RepeatButton x:Name="TimeUpButton" Content="▲" Width="20" Height="20" Click="TimeUpButton_Click"/>
+                        <RepeatButton x:Name="TimeDownButton" Content="▼" Width="20" Height="20" Click="TimeDownButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+                <Button x:Name="UpdateButton" Content="更新" Click="UpdateButton_Click" Width="60" Height="25"/>
+                <Button x:Name="CurrentTimeButton" Content="当前时间" Click="CurrentTimeButton_Click" Width="70" Height="25" Margin="5,0,0,0"/>
+                <Button x:Name="ResetButton" Content="重置视图" Click="ResetButton_Click" Width="70" Height="25" Margin="5,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="CurrentDateDisplay" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="DateTimeDisplay" Grid.Row="1" Margin="10,0,10,10" FontSize="14" FontWeight="Bold"/>
+            <Slider x:Name="TimeSlider" Grid.Column="1" Minimum="0" Maximum="365" Value="0" Margin="10,0"
+                    ValueChanged="TimeSlider_ValueChanged"/>
+            <ToggleButton x:Name="AnimationButton" Grid.Column="2" Content="开始动画" Click="AnimationButton_Click" Width="80" Height="25"/>
+        </Grid>
+
+        <Canvas x:Name="ChartCanvas"  CacheMode="BitmapCache"  Grid.Row="2" 
+                MouseLeftButtonDown="ChartCanvas_MouseLeftButtonDown"
+                MouseLeftButtonUp="ChartCanvas_MouseLeftButtonUp"
+                MouseMove="ChartCanvas_MouseMove"/>
+    </Grid>
+</Window>
