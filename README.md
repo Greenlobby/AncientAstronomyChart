@@ -3,6 +3,7 @@
 ## English
 
 This project is a WPF application that visualizes ancient Chinese astronomical concepts, including the Twenty-Eight Mansions, solar terms, and celestial body positions.
+"This software utilizes the results of Mr. Dao from TWITTER regarding the research of the 28 lunar mansions, particularly the conclusion that in the year -2629, the position of the Ox Mansion is at 240 degrees of ecliptic longitude."
 
 ### Features
 - Display of the Twenty-Eight Mansions (二十八宿)
@@ -23,6 +24,7 @@ This project is a WPF application that visualizes ancient Chinese astronomical c
 ## 中文
 
 这个项目是一个WPF应用程序，用于可视化中国古代天文概念，包括二十八宿、节气和天体位置。
+本软件使用了TWITTER上道先生的28宿的研究成果，特别是-2629年，牛宿一位置在黄经240度，这个结论。感谢道先生！
 
 ### 功能
 - 显示二十八宿
